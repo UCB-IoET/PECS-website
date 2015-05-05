@@ -1,8 +1,9 @@
-document.addEventListener("DOMContentLoaded", function (event) {
-    document.getElementsByClassName("actuateChair")[0].onclick = buttonHandler;
+$(document).ready(function (event) {
+    document.getElementsByClassName("actuateChair")[0].onclick = actuateHandler;
+    document.getElementsByClassName("refreshSettings")[0].onclick = refreshHandler;
 });
 
-function buttonHandler () {
+function actuateHandler () {
     var backh = document.getElementsByClassName("backh")[0];
     var bottomh = document.getElementsByClassName("bottomh")[0];
     var backf = document.getElementsByClassName("backf")[0];
@@ -11,4 +12,8 @@ function buttonHandler () {
     console.log(bottomh.value);
     console.log(backf.value);
     console.log(bottomf.value);
+}
+
+function refreshHandler () {
+    console.log("Refreshing");
 }
