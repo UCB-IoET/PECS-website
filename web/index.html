@@ -10,22 +10,40 @@
       <text>Chair ID: </text>
       <input class="macaddr" type="text">
     </div>
-    <div>
-      <text>Back Heater: </text>
-      <input class="backh" min="0" max="100" type="range">
-    </div>
-    <div>
-      <text>Bottom Heater: </text>
-      <input class="bottomh" min="0" max="100" type="range">
-    </div>
-    <div>
-      <text>Back Fan: </text>
-      <input class="backf" min="0" max="100" type="range">
-    </div>
-    <div>
-      <text>Bottom Fan: </text>
-      <input class="bottomf" min="0" max="100" type="range">
-    </div>
+    <table>
+      <tr>
+	<td>
+	  <text>Back Heater: </text>
+	</td>
+	<td>
+	  <input class="backh" min="0" max="100" type="range">
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  <text>Bottom Heater: </text>
+	</td>
+	<td>
+	  <input class="bottomh" min="0" max="100" type="range">
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  <text>Back Fan: </text>
+	</td>
+	<td>
+	  <input class="backf" min="0" max="100" type="range">
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  <text>Bottom Fan: </text>
+	</td>
+	<td>
+	  <input class="bottomf" min="0" max="100" type="range">
+	</td>
+      </tr>
+    </table>
     <input class="actuateChair" value="Actuate Chair" type="button">
     <input class="refreshSettings" value="Refresh Settings" type="button">
     <div class="errorMessage"></div>
