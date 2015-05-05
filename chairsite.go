@@ -10,15 +10,12 @@ import (
        )
 
 func forwardResponse(w io.Writer, r io.Reader) {
-    var buffer []byte = make([]byte, 1024) // forward the response in 1 KiB chunks
+    var buffer []byte = make([]byte, 512) // forward the response in 1 KiB chunks
     var bytesRead int
     var readErr error = nil
     for readErr == nil {
         bytesRead, readErr = r.Read(buffer)
-        if readErr != nil {
-            buffer = buffer[:bytesRead]
-        }
-        w.Write(buffer)
+        w.Write(buffer[:bytesRead])
     }
 }
 
