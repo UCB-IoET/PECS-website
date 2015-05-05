@@ -5,12 +5,23 @@ $(document).ready(function (event) {
     document.getElementsByClassName("refreshSettings")[0].onclick = refreshHandler;
 });
 
-function actuateHandler () {
+function getElements() {
     var macaddr = document.getElementsByClassName("macaddr")[0];
     var backh = document.getElementsByClassName("backh")[0];
     var bottomh = document.getElementsByClassName("bottomh")[0];
     var backf = document.getElementsByClassName("backf")[0];
     var bottomf = document.getElementsByClassName("bottomf")[0];
+    return [macaddr, backh, bottomh, backf, bottomf];
+}
+
+function actuateHandler () {
+    var macaddr, backh, bottomh, backf, bottomf;
+    var elems = getElements();
+    macaddr = elems[0];
+    backh = elems[1];
+    bottomh = elems[2];
+    backf = elems[3];
+    bottomf = elems[4];
     var req = {
 	macaddr: macaddr.value,
 	backh: backh.value,
@@ -29,7 +40,13 @@ function actuateHandler () {
 }
 
 function refreshHandler () {
-    var macaddr = document.getElementsByClassName("macaddr")[0];
+    var macaddr, backh, bottomh, backf, bottomf;
+    var elems = getElements();
+    macaddr = elems[0];
+    backh = elems[1];
+    bottomh = elems[2];
+    backf = elems[3];
+    bottomf = elems[4];
     $.ajax(origin + "/upd", {
 	contentType: "text",
 	data: macaddr.value,
@@ -39,8 +56,11 @@ function refreshHandler () {
 	    alert("The settings could not be refreshed: " + textStatus);
 	},
 	success: function (data, textStatus, jqXHR) {
-	    x = data;
-	    console.log(data);
+	    var doc = JSON.parse(data);
+	    backh.value = doc.backh;
+	    bottomh.value = doc.bottomh;
+	    backf.value = doc.backf;
+	    bottomf.value = doc.bottomf;
 	}
     });
 }
