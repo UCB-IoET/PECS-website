@@ -34,9 +34,10 @@ function actuateHandler () {
 	data: JSON.stringify(req),
 	method: "POST",
 	error: function (jqXHR, textStatus, errorThrown) {
-	    alert("The settings could not be effected: " + textStatus);
+	    $(".errorMessage").text("Settings could not be effected. Double-check that the Chair ID is valid.");
 	}
     });
+    $(".errorMessage").text("");
 }
 
 function refreshHandler () {
@@ -53,8 +54,7 @@ function refreshHandler () {
 	dataType: "text",
 	method: "POST",
 	error: function (jqXHR, textStatus, errorThrown) {
-	    alert("The settings could not be refreshed: " + textStatus);
-	},
+	    $(".errorMessage").text("Settings could not be refreshed. Double-check that the Chair ID is valid.");	},
 	success: function (data, textStatus, jqXHR) {
 	    var doc = JSON.parse(data);
 	    backh.value = doc.backh;
